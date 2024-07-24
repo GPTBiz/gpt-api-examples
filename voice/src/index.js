@@ -1,6 +1,8 @@
 import { Room, ExternalE2EEKeyProvider, VideoPresets } from "livekit-client"
 
 const apiKey = 'YOUR API_KEY'
+const model = "gpt-4o"
+const vocie = "cove"
 
 
 const keyProvider = new ExternalE2EEKeyProvider()
@@ -29,8 +31,8 @@ document.getElementById('startCallButton').addEventListener('click', async () =>
     myHeaders.append("Content-Type", "application/json");
     myHeaders.append("Authorization", `Bearer ${apiKey}`);
     const raw = JSON.stringify({
-        "model": "gpt-4o",
-        "voice": "cove"
+        model,
+        vocie
     });
     const requestOptions = {
         method: "POST",
