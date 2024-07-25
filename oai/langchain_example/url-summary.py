@@ -10,8 +10,7 @@ APi_KEY = "YOUR API_KEY"
 os.environ["OPENAI_API_KEY"] = APi_KEY
 os.environ["OPENAI_API_BASE"] = BASE_URL
 
-# 
-url="https://xxxx"
+url="https://xxxxxx"
 
 if "youtube.com" in url:
     loader = YoutubeLoader.from_youtube_url(url, add_video_info=True)
@@ -27,5 +26,6 @@ prompt_template = """Write a summary of the following in 250-300 words:
 """
 prompt = PromptTemplate(template=prompt_template, input_variables=["text"])
 chain = load_summarize_chain(llm, chain_type="stuff", prompt=prompt)
-summary = chain.run(data)
+summary = chain.invoke(data)
+print("----------url summary----------")
 print(summary)
